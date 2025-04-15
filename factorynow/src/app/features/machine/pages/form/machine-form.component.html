@@ -1,0 +1,9 @@
+<h1>{{ isEditMode ? 'Editar' : 'Nova' }} Máquina</h1>
+
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <label>
+        Nome:
+        <input formControlName="name" />
+    </label>
+    <button type="submit">Salvar</button>
+</form>

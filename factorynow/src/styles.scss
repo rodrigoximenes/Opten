@@ -1,0 +1,17 @@
+/* styles.scss */
+:root {
+  --primary: oklch(53.18% 0.28 296.97);
+  --bg-color: oklch(97% 0.005 270);
+  --text-color: oklch(19.37% 0.006 300.98);
+  --radius: 1rem;
+  --shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+

@@ -1,0 +1,29 @@
+.main-container {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  background-color: var(--bg-color);
+}
+
+.card {
+  background-color: white;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 2.5rem;
+  width: 100%;
+  max-width: 720px;
+  text-align: center;
+}
+
+.title {
+  margin: 0 0 1.5rem 0;
+  font-size: 2rem;
+  color: var(--primary);
+}
+
+mat-toolbar {
+  background-color: var(--primary) !important;
+  color: var(--bg-color) !important;
+}

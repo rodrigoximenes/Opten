@@ -1,0 +1,10 @@
+<h1>Machine List</h1>
+<button [routerLink]="['/machines/new']">New Machine</button>
+
+<ul>
+    <li *ngFor="let machine of machines">
+        {{ machine.name }}
+        <a [routerLink]="['/machines', machine.id]">Details</a> |
+        <a [routerLink]="['/machines', machine.id, 'edit']">Edit</a>
+    </li>
+</ul>

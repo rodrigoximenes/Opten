@@ -1,0 +1,17 @@
+.dashboard-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    padding: 2rem;
+    background-color: var(--color-bg);
+    color: var(--color-text); 
+  }
+  
+  mat-card {
+    width: 100%;
+    max-width: 600px;
+    background-color: white; 
+    color: var(--color-text);
+  }
+  
