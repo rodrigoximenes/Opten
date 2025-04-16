@@ -1,24 +1,28 @@
+import { Component, inject, Input, Signal, effect, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Component, computed, inject, signal } from '@angular/core';
-import { ActivatedRoute, RouterModule } from '@angular/router';
+import { SignalRService } from '../../../../core/services/signal-r.service';
+import { MachineStatus } from '../../../../core/models/machine-status';
+import { Router } from '@angular/router';
 
 @Component({
+  selector: 'app-machine-detail',
   standalone: true,
-  selector: 'machine-detail',
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule],
   templateUrl: './machine-detail.component.html',
-  styleUrl: './machine-detail.component.scss'
 })
 export class MachineDetailComponent {
-  private route = inject(ActivatedRoute);
+  private signalRService = inject(SignalRService);
+  private router = inject(Router);
 
-  private idSignal = signal(this.route.snapshot.paramMap.get('id'));
-  machineId = computed(() => this.idSignal());
+  status!: Signal<MachineStatus | undefined>;
 
-  machine = computed(() => ({
-    id: this.machineId(),
-    name: 'Máquina Exemplo',
-    status: 'Ativa',
-    producedParts: 1234,
-  }));
+  @Input({ required: true }) machineId!: string;
+
+  constructor() {
+    this.status = this.signalRService.getStatusById(this.machineId);
+
+    effect(() => {
+      console.log('Status:', this.status());
+    });
+  }
 }

@@ -1,6 +1,10 @@
-<h1>Detalhes da Máquina</h1>
+<div *ngIf="status() as currentStatus; else loading">
+    <h2>Machine Status</h2>
+    <p>Status: {{ currentStatus.operational ? 'Operational' : 'Stopped' }}</p>
+    <p>Current Performance: {{ currentStatus.performance }}%</p>
+    <p>Active Errors: {{ currentStatus.activeErrors.join(', ') || 'None' }}</p>
+</div>
 
-<p><strong>ID:</strong> {{ machine().id }}</p>
-<p><strong>Nome:</strong> {{ machine().name }}</p>
-<p><strong>Status:</strong> {{ machine().status }}</p>
-<p><strong>Peças produzidas:</strong> {{ machine().producedParts }}</p>
+<ng-template #loading>
+    <p>Loading machine status...</p>
+</ng-template>
