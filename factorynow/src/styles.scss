@@ -1,4 +1,10 @@
-/* styles.scss */
+@use '@angular/material' as mat;
+
+* {
+  box-sizing: border-box;
+}
+
+
 :root {
   --primary: oklch(53.18% 0.28 296.97);
   --bg-color: oklch(97% 0.005 270);
@@ -15,3 +21,18 @@ html, body {
   color: var(--text-color);
 }
 
+.success-snackbar {
+  background-color: #4caf50; 
+  color: white;
+}
+
+.error-snackbar {
+  background-color: #f44336; 
+  color: white;
+}
+
+.active {
+  background-color: #e0e0e0; 
+  font-weight: bold;
+  border-left: 8px solid #3f51b5; 
+}

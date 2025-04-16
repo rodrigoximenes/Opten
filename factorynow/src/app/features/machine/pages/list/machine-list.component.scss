@@ -1,0 +1,49 @@
+mat-card{
+  margin-bottom: 2em;
+}
+
+.machine-table {
+  overflow-x: auto;
+  width: 100%; 
+}
+
+.toolbar {
+  display: flex;
+  justify-content: flex-end;
+  margin: 0 5.9em;
+}
+
+.toolbar button {
+  font-weight: bold;
+}
+
+@media (max-width: 1200px) {
+  .toolbar {
+    margin: 0 3em; 
+  }
+}
+
+@media (max-width: 768px) {
+  .toolbar {
+    margin: 0 1em; 
+  }
+
+  .machine-table {
+    overflow-x: scroll; 
+  }
+}
+
+@media (max-width: 576px) {
+  .toolbar {
+    flex-direction: column; 
+    align-items: flex-end; 
+  }
+
+  .machine-table {
+    overflow-x: scroll; 
+  }
+
+  .toolbar button {
+    font-size: 0.9rem; 
+  }
+}

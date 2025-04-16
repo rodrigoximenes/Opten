@@ -1,0 +1,8 @@
+{
+  "/api": {
+    "target": "http://ng-demo-api.opten.io",
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel": "debug"
+  }
+}

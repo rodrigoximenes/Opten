@@ -1,15 +1,18 @@
 {
   "name": "factorynow",
   "version": "0.0.0",
+  "private": true,
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "serve:ssr:factorynow": "node dist/factorynow/server/server.mjs"
+    "lint": "ng lint",
+    "format": "prettier --write \"src/**/*.ts\" \"src/**/*.html\"",
+    "serve:ssr:factorynow": "node dist/factorynow/server/server.mjs",
+    "preview:ssr:factorynow": "node --env-file=.env dist/factorynow/server/server.mjs"
   },
-  "private": true,
   "dependencies": {
     "@angular/cdk": "^19.2.9",
     "@angular/common": "^19.2.0",
@@ -40,6 +43,7 @@
     "karma-coverage": "~2.2.0",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
-    "typescript": "~5.7.2"
+    "typescript": "~5.7.2",
+    "prettier": "^3.2.5"
   }
 }

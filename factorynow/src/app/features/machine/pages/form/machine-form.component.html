@@ -1,9 +1,21 @@
-<h1>{{ isEditMode ? 'Editar' : 'Nova' }} Máquina</h1>
+<div class="form-container">
+    <h1>{{ isEditMode ? 'Edit Machine' : 'New Machine' }}</h1>
 
-<form [formGroup]="form" (ngSubmit)="onSubmit()">
-    <label>
-        Nome:
-        <input formControlName="name" />
-    </label>
-    <button type="submit">Salvar</button>
-</form>
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <label for="name">Machine Name</label>
+            <input id="name" formControlName="name" type="text" class="form-control" [class.is-invalid]="nameInvalid"
+                placeholder="Enter machine name" />
+
+            <div *ngIf="nameErrorMessage" class="invalid-feedback">
+                {{ nameErrorMessage }}
+            </div>
+        </div>
+
+        <div class="toolbar">
+            <button type="submit" class="btn btn-primary" [disabled]="form.invalid">
+                {{ isEditMode ? 'Save Changes' : 'Create Machine' }}
+            </button>
+        </div>
+    </form>
+</div>

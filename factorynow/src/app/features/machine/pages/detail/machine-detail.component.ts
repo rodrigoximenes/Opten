@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, computed, inject, signal } from '@angular/core';
 import { ActivatedRoute, RouterModule } from '@angular/router';
 
 @Component({
@@ -10,9 +10,15 @@ import { ActivatedRoute, RouterModule } from '@angular/router';
   styleUrl: './machine-detail.component.scss'
 })
 export class MachineDetailComponent {
-  id: string | null;
+  private route = inject(ActivatedRoute);
 
-  constructor(private route: ActivatedRoute) {
-    this.id = this.route.snapshot.paramMap.get('id');
-  }
+  private idSignal = signal(this.route.snapshot.paramMap.get('id'));
+  machineId = computed(() => this.idSignal());
+
+  machine = computed(() => ({
+    id: this.machineId(),
+    name: 'Máquina Exemplo',
+    status: 'Ativa',
+    producedParts: 1234,
+  }));
 }
